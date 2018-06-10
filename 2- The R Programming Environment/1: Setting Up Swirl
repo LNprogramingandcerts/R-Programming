@@ -1,0 +1,24 @@
+Selection: 1
+  |                                                                                                                                                          |   0%
+
+| Welcome to the swirl component of The R Programming Environment course on Coursera. This will be a very short lesson designed to test swirl's connection to
+| Coursera's servers.
+
+...
+
+  |======================================                                                                                                                    |  25%
+| At the end of every lesson you will be given a choice to submit to Coursera or to have a code generated. If this test succeeds then you should continue to submit
+| your progress to Coursera. However if this test fails you should always choose to have a code generated.
+
+...
+
+  |=============================================================================                                                                             |  50%
+| Copy the generated code and then paste it into the quiz question on Coursera that corresponds to the lesson you're working on in swirl in order to get credit.
+
+...
+
+  |====================================================================================================================                                      |  75%
+| Let's test submitting to Coursera now. In the next question choose Yes. If you are not able to connect, then you know that you should always ask for a code at
+| the end of the lesson. If you are able to connect then you should be able to submit your progress to swirl easily in the future!
+
+...
