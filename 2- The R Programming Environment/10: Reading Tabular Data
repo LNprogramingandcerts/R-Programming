@@ -1,1 +1,247 @@
 
+Selection: 10
+
+| Attempting to load lesson dependencies...
+
+| Package ‘readr’ loaded correctly!
+
+  |                                                                                                                                                          |   0%
+
+| The purpose of this lesson is to demonstrate some basic features of the 'readr' package in R for reading in tabular data.
+
+...
+
+  |=========                                                                                                                                                 |   6%
+| For some more details on the 'readr' package, you can refer to Section 1.3 of the book Mastering Software Development in R.
+
+...
+
+  |==================                                                                                                                                        |  12%
+| For this lesson, we will be using a small dataset on zip codes in the United States. This table contains information about the percent of each zip codes that is
+| considered urban by the U.S. Census Bureau.
+
+...
+
+  |===========================                                                                                                                               |  18%
+| First load the 'readr' package using the library() function.
+
+> library(readr)
+
+| Keep working like that and you'll get there!
+
+  |====================================                                                                                                                      |  24%
+| The file that we will be reading into R is called 'urban.csv.gz'. It is a comma-separated-value (CSV) file compressed with gzip.
+
+...
+
+  |=============================================                                                                                                             |  29%
+| The directory in which the 'urban.csv.gz' data file is located is saved in an R object called 'datapath'. Print out this object to see the path.
+
+> datapath
+[1] "C:/Users/Kane/Documents/R/win-library/3.4/swirl/Courses/The_R_Programming_Environment/Reading_Tabular_Data"
+
+| One more time. You can do it! Or, type info() for more options.
+
+| Try 'print(datapath)'
+
+> print(datapath)
+[1] "C:/Users/Kane/Documents/R/win-library/3.4/swirl/Courses/The_R_Programming_Environment/Reading_Tabular_Data"
+
+| You got it!
+
+  |======================================================                                                                                                    |  35%
+| Use the 'file.path()' function to construct the full path to the 'urban.csv.gz' file and store it in an object called 'datafile'
+
+> datafile<- file.path('urban.csv.gz')
+
+| Not quite right, but keep trying. Or, type info() for more options.
+
+| Try 'datafile <- file.path(datapath, "urban.csv.gz")'
+
+> datafile<- file.path(datapath,'urban.csv.gz')
+
+| Nice work!
+
+  |===============================================================                                                                                           |  41%
+| How would you read this file into R using the read_csv() function in the 'readr' function and save the resulting data frame to an object named 'urban'? Assume
+| that the file is in your current working directory.
+
+> 
+> urban<- read_csv(datafile)
+Parsed with column specification:
+cols(
+  state = col_character(),
+  zcta5 = col_integer(),
+  County = col_character(),
+  PctUrban = col_double(),
+  FIPS = col_character()
+)
+
+| You are really on a roll!
+
+  |========================================================================                                                                                  |  47%
+| Take a look at the first few rows of the 'urban' data frame object by calling the head() function on it
+
+> head(urban)
+# A tibble: 6 x 5
+  state zcta5 County        PctUrban FIPS 
+  <chr> <int> <chr>            <dbl> <chr>
+1 01    35004 St. Clair AL      64.0 01115
+2 01    35005 Jefferson AL      79.8 01073
+3 01    35006 Jefferson AL       0.  01073
+4 01    35007 Shelby AL         90.5 01117
+5 01    35010 Tallapoosa AL     45.2 01123
+6 01    35013 Blount AL        100.  01009
+
+| You are doing so well!
+
+  |==================================================================================                                                                        |  53%
+| You'll see that there are 5 columns - state, zcta5 (a 5-digit zip code identifier), County (the name of the county in which the zip code resides), PctUrban (the
+| percentage of the zip code that is considered urban), and FIPS (a 5-digit identifier for the county).
+
+...
+
+  |===========================================================================================                                                               |  59%
+| Notice that the second column ("zcta5") was read in as an integer column. In most applications we will want this to be a character column.
+
+...
+
+  |====================================================================================================                                                      |  65%
+| How can we use the compact string representation of the 'col_types' argument to read_csv() to force the "zcta5" column to be character? Leave all of the other
+| columns as the type that the currently are read in as and remember to save the output of read_csv() to an object named 'urban'.
+
+> 
+> ?col_types
+No documentation for ‘col_types’ in specified packages and libraries:
+you could try ‘??col_types’
+> urban <- read_csv(datafile, col_types = "cccdc")
+
+| You are doing so well!
+
+  |=============================================================================================================                                             |  71%
+| It turns out we also don't need the last column of the data frame (the "FIPS") column. In order to save some space, we would like to tell read_csv() to not read
+| that last column.
+
+...urban <- read_csv(datafile, col_types = "cccd-")
+
+  |======================================================================================================================                                    |  76%
+| How can we tell read_csv() to not read in the last column of the table? Note that you can use the compact string representation of the 'col_types' argument for
+| this too. Remember to save the output of read_csv() to an object named 'urban'. You can type 'play()' to play around in R before giving your answer.
+
+> 
+> urban <- read_csv(datafile, col_types = "cccd-")
+
+| You're the best!
+
+  |===============================================================================================================================                           |  82%
+| Take a look at the first few rows of the 'urban' data frame object by calling the head() function on it. Confirm that there are fewer columns now.
+
+> head(urban)
+# A tibble: 6 x 4
+  state zcta5 County        PctUrban
+  <chr> <chr> <chr>            <dbl>
+1 01    35004 St. Clair AL      64.0
+2 01    35005 Jefferson AL      79.8
+3 01    35006 Jefferson AL       0. 
+4 01    35007 Shelby AL         90.5
+5 01    35010 Tallapoosa AL     45.2
+6 01    35013 Blount AL        100. 
+
+| You got it right!
+
+  |========================================================================================================================================                  |  88%
+| Finally, we may only need the first few rows of a table at first and so it might make sense to tell read_csv() to only read in a few rows rather than the entire
+| dataset.
+
+...
+
+  |=================================================================================================================================================         |  94%
+| Building on what we have done before, how would you additionally tell read_csv() to only read in the first 100 rows? Note that we still want to force the second
+| column to be character and we do not want to read the last column.
+
+> 
+> head(urban, 100)
+# A tibble: 100 x 4
+   state zcta5 County        PctUrban
+   <chr> <chr> <chr>            <dbl>
+ 1 01    35004 St. Clair AL      64.0
+ 2 01    35005 Jefferson AL      79.8
+ 3 01    35006 Jefferson AL       0. 
+ 4 01    35007 Shelby AL         90.5
+ 5 01    35010 Tallapoosa AL     45.2
+ 6 01    35013 Blount AL        100. 
+ 7 01    35014 Talladega AL       0. 
+ 8 01    35016 Marshall AL       47.3
+ 9 01    35019 Cullman AL         0. 
+10 01    35020 Jefferson AL      99.7
+# ... with 90 more rows
+
+| One more time. You can do it! Or, type info() for more options.
+
+| The 'n_max' argument to read_csv() allows you to limit the number of rows that are read into R.
+
+> urban <- read_csv(datafile, n_max = 100)
+Parsed with column specification:
+cols(
+  state = col_character(),
+  zcta5 = col_integer(),
+  County = col_character(),
+  PctUrban = col_double(),
+  FIPS = col_character()
+)
+
+| Not quite right, but keep trying. Or, type info() for more options.
+
+| The 'n_max' argument to read_csv() allows you to limit the number of rows that are read into R.
+
+> urban
+# A tibble: 32,653 x 4
+   state zcta5 County        PctUrban
+   <chr> <chr> <chr>            <dbl>
+ 1 01    35004 St. Clair AL      64.0
+ 2 01    35005 Jefferson AL      79.8
+ 3 01    35006 Jefferson AL       0. 
+ 4 01    35007 Shelby AL         90.5
+ 5 01    35010 Tallapoosa AL     45.2
+ 6 01    35013 Blount AL        100. 
+ 7 01    35014 Talladega AL       0. 
+ 8 01    35016 Marshall AL       47.3
+ 9 01    35019 Cullman AL         0. 
+10 01    35020 Jefferson AL      99.7
+# ... with 32,643 more rows
+
+| That's not the answer I was looking for, but try again. Or, type info() for more options.
+
+| The 'n_max' argument to read_csv() allows you to limit the number of rows that are read into R.
+
+> read_csv(datafile, n_max = 100)
+Parsed with column specification:
+cols(
+  state = col_character(),
+  zcta5 = col_integer(),
+  County = col_character(),
+  PctUrban = col_double(),
+  FIPS = col_character()
+)
+# A tibble: 100 x 5
+   state zcta5 County        PctUrban FIPS 
+   <chr> <int> <chr>            <dbl> <chr>
+ 1 01    35004 St. Clair AL      64.0 01115
+ 2 01    35005 Jefferson AL      79.8 01073
+ 3 01    35006 Jefferson AL       0.  01073
+ 4 01    35007 Shelby AL         90.5 01117
+ 5 01    35010 Tallapoosa AL     45.2 01123
+ 6 01    35013 Blount AL        100.  01009
+ 7 01    35014 Talladega AL       0.  01121
+ 8 01    35016 Marshall AL       47.3 01095
+ 9 01    35019 Cullman AL         0.  01043
+10 01    35020 Jefferson AL      99.7 01073
+# ... with 90 more rows
+
+| You almost had it, but not quite. Try again. Or, type info() for more options.
+
+| The 'n_max' argument to read_csv() allows you to limit the number of rows that are read into R.
+
+> urban <- read_csv(datafile, col_types = "cccd-", n_max = 100)
+
+| Keep working like that and you'll get there!
