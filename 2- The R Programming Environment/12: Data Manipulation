@@ -1,1 +1,1119 @@
 
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/.RData]
+
+> library(swirl)
+
+| Hi! I see that you have some variables saved in your workspace. To keep things running smoothly, I recommend you clean up before starting swirl.
+
+| Type ls() to see a list of the variables in your workspace. Then, type rm(list=ls()) to clear your workspace.
+
+| Type swirl() when you are ready to begin.
+
+> swirl(0)
+
+| Welcome to swirl! Please sign in. If you've been here before, use the same name as you did then. If you are new, call yourself something unique.
+
+What shall I call you? k
+
+| Would you like to continue with one of these lessons?
+
+1: The R Programming Environment Reading Tabular Data
+2: No. Let me start something new.
+
+Selection: 1
+
+| Attempting to load lesson dependencies...
+
+| Package ‘readr’ loaded correctly!
+
+
+
+| Would you like to receive credit for completing this course on Coursera.org?
+
+1: Generate Code
+2: Yes
+3: No
+
+Selection: 3
+
+| Keep working like that and you'll get there!
+
+| You've reached the end of this lesson! Returning to the main menu...
+
+| Please choose a course, or type 0 to exit swirl.
+
+1: R Programming
+2: The R Programming Environment
+3: Take me to the swirl course repository!
+
+Selection: 2
+
+| Please choose a lesson, or type 0 to return to course menu.
+
+ 1: Setting Up Swirl              2: Basic Building Blocks         3: Sequences of Numbers          4: Vectors                    
+ 5: Missing Values                6: Subsetting Vectors            7: Matrices and Data Frames      8: Logic                      
+ 9: Workspace and Files          10: Reading Tabular Data         11: Looking at Data              12: Data Manipulation          
+13: Text Manipulation Functions  14: Regular Expressions          15: The stringr Package          
+
+Selection: 12
+
+| Attempting to load lesson dependencies...
+
+| Package ‘dplyr’ loaded correctly!
+
+| Package ‘tidyr’ loaded correctly!
+
+| Package ‘titanic’ loaded correctly!
+
+| Package ‘faraway’ loaded correctly!
+
+  |                                                                                                                                                          |   0%
+
+| I just opened an R script for you, and I have loaded a dataset called `worldcup`. For this question, you will be adding a function from `dplyr` or `tidyr` to the
+| pipe chain in the script. Your goal is to re-create the example output shown in the comments of the script. When you are ready to submit your script, save the
+| script and type `submit()`, or type `reset()` to reset the script to its original state.
+
+> ?tidyr
+> dplyr(wc_1)
+Error in dplyr(wc_1) : could not find function "dplyr"
+> submit()
+
+| Sourcing your script...
+
+Error in tidyr(., wc_1) : could not find function "tidyr"
+
+| Not quite! Try again.
+
+| Check the example output in the comments of the script I opened for you. Make sure you are selecting just the four columns shown in this example output. Try
+| running your code in the console and printing out the result to determine whether it's successfully generating the desired final data frame before you submit it.
+
+> submit()
+
+| Sourcing your script...
+
+
+| Almost! Try again.
+
+| Check the example output in the comments of the script I opened for you. Make sure you are selecting just the four columns shown in this example output. Try
+| running your code in the console and printing out the result to determine whether it's successfully generating the desired final data frame before you submit it.
+
+> wc_1
+                            Team   Position Time Shots Passes Tackles Saves
+Abdoun                   Algeria Midfielder   16     0      6       0     0
+Abe                        Japan Midfielder  351     0    101      14     0
+Abidal                    France   Defender  180     0     91       6     0
+Abou Diaby                France Midfielder  270     1    111       5     0
+Aboubakar               Cameroon    Forward   46     2     16       0     0
+Abreu                    Uruguay    Forward   72     0     15       0     0
+Addy                       Ghana   Defender  138     0     51       2     0
+Adiyiah                    Ghana    Forward   33     0      9       0     0
+Afellay              Netherlands Midfielder   21     5     22       0     0
+Afolabi                  Nigeria   Defender  103     0     38       1     0
+Agger                    Denmark   Defender  270     2    120      10     0
+Aguilar                   Mexico   Defender   55     0     31       2     0
+Aguero                 Argentina    Forward  106     2     57       2     0
+Ahn Young-Hak        North Korea Midfielder  270     1    123      11     0
+Alcaraz                 Paraguay   Defender  390     1    172      13     0
+Alexandre Song          Cameroon Midfielder   90     1     59       7     0
+Almeida                 Portugal    Forward  136     5     42       3     0
+Alonso                     Spain Midfielder  506     9    465      18     0
+Alou Diarra               France Midfielder   82     0     31       0     0
+Alvarez                 Honduras Midfielder  180     1     57       1     0
+Amoah                      Ghana    Forward   11     0      4       1     0
+Amorim                  Portugal Midfielder    5     1      7       0     0
+Anelka                    France    Forward  117     7     37       1     0
+Annan                      Ghana Midfielder  510     4    307      11     0
+Appiah                     Ghana Midfielder  105     1     54       2     0
+Arbeloa                    Spain   Defender   13     0     12       0     0
+Arevalo Rios             Uruguay Midfielder  570     5    195      21     0
+Asamoah                    Ghana Midfielder  480    11    214       9     0
+ColeA                    England   Defender  360     0    142      12     0
+Assou-Ekotto            Cameroon   Defender  270     0    116       5     0
+Avraam Papadopoulos       Greece   Defender  270     1     70       8     0
+Ayew                       Ghana Midfielder  389     3    170      15     0
+Ayila Yussuf             Nigeria Midfielder   90     0     44       1     0
+Badstuber                Germany   Defender  167     0     84       6     0
+Baptista                  Brazil Midfielder   82     0     42       1     0
+Barnetta             Switzerland Midfielder  227     3    104       5     0
+Barrera                   Mexico Midfielder  149     4     59       2     0
+Barreto                 Paraguay Midfielder  111     2     38       3     0
+Barrios                 Paraguay    Forward  308     6     89       2     0
+Barron               New Zealand Midfielder    1     0      0       0     0
+Barry                Ivory Coast Goalkeeper  270     0     23       0     8
+BarryG                   England Midfielder  264     2    171       8     0
+Bassong                 Cameroon   Defender  163     0     71       3     0
+Bautista                  Mexico    Forward   45     0      8       3     0
+Beasley                      USA Midfielder   10     0      4       0     0
+Beauchamp              Australia   Defender   90     0     33       2     0
+Beausejour                 Chile Midfielder  360     2    100       7     0
+Beckmann                 Denmark Midfielder   28     0      8       0     0
+Behrami              Switzerland Midfielder   31     0      4       1     0
+Belhadj                  Algeria   Defender  270     1    146       8     0
+Benaglio             Switzerland Goalkeeper  270     0     75       0    11
+Bendtner                 Denmark    Forward  242     4     70       0     0
+Benitez                 Paraguay    Forward   83     2     25       2     0
+Bernardez               Honduras   Defender   90     2     34       4     0
+Bertos               New Zealand Midfielder  270     0     79       5     0
+Birsa                   Slovenia Midfielder  261     6     61       5     0
+Blanco                    Mexico    Forward  112     2     60       3     0
+BoatengGe                Germany   Defender  287     1    125      10     0
+BoatengGh                  Ghana Midfielder  464    12    220      20     0
+Bocanegra                    USA   Defender  390     1    130       9     0
+Boka                 Ivory Coast   Defender   90     2     50       5     0
+Bolatti                Argentina Midfielder   98     2     97       4     0
+Bonet                   Paraguay Midfielder  300     0    108       4     0
+Bong                    Cameroon   Defender   56     0     12       0     0
+Bornstein                    USA   Defender  200     2     72       5     0
+Boudebouz                Algeria Midfielder   74     3     28       1     0
+Bougherra                Algeria   Defender  270     1     89      11     0
+Boulahrouz           Netherlands   Defender  180     0     81       8     0
+Bradley                      USA Midfielder  390     6    210       9     0
+Bravo                      Chile Goalkeeper  360     0     58       0     4
+Brecko                  Slovenia   Defender  270     1     95       5     0
+Bresciano              Australia Midfielder  132     3     47       1     0
+Brockie              New Zealand Midfielder   11     0      5       0     0
+Bruno Alves             Portugal   Defender  360     1    166       5     0
+Buddle                       USA    Forward   39     1     12       0     0
+Buffon                     Italy Goalkeeper   45     0      4       0     0
+Bunjaku              Switzerland    Forward   13     0      5       0     0
+Burdisso               Argentina   Defender  341     1    167       1     0
+Busquets                   Spain Midfielder  511     0    466      15     0
+Cacau                    Germany    Forward  132     4     54       1     0
+Cahill                 Australia Midfielder  146     6     39       1     0
+Camoranesi                 Italy Midfielder   76     2     45       2     0
+Caniza                  Paraguay   Defender   90     4     44       1     0
+Cannavaro                  Italy   Defender  270     0    138      11     0
+Capdevila                  Spain   Defender  540     1    310      10     0
+Cardozo                 Paraguay    Forward  204     3     53       2     0
+Carmona                    Chile Midfielder  270     1    175       9     0
+Carney                 Australia   Defender  180     0     56       4     0
+Carragher                England   Defender  135     0     74       4     0
+Carvalho                Portugal   Defender  360     2    173      11     0
+Casillas                   Spain Goalkeeper  540     0     67       0    11
+Castro                    Mexico Midfielder   33     0     21       1     0
+Cavani                   Uruguay    Forward  435     9    151      11     0
+Cech                    Slovakia   Defender   90     0     35       2     0
+Cesar                   Slovenia   Defender  270     1     89       2     0
+Cha Du-Ri            South Korea   Defender  270     2    105       3     0
+Cha Jong-Hyok        North Korea   Defender  255     4     74       5     0
+Chaouchi                 Algeria Goalkeeper   90     0     17       0     2
+Charisteas                Greece    Forward   61     0     12       2     0
+Chavez                  Honduras   Defender  270     0     62       3     0
+Chedjou                 Cameroon Midfielder   90     2     77       2     0
+Cherundolo                   USA   Defender  390     1    180      10     0
+Chiellini                  Italy   Defender  270     2    155       7     0
+Chipperfield           Australia Midfielder  138     2     50       3     0
+Cho Yong-Hyung       South Korea   Defender  360     0    111      10     0
+Choe Kum-Chol        North Korea    Forward   23     1     13       0     0
+Choupo-Moting           Cameroon    Forward  147     2     38       1     0
+Christian Poulsen        Denmark Midfielder  270     1    179       7     0
+Christie             New Zealand Midfielder   21     0      9       1     0
+Cisse                     France    Forward   55     3      7       1     0
+Clark                        USA Midfielder  121     0     42       4     0
+Clichy                    France   Defender   90     0     46       2     0
+Contreras                  Chile   Defender   54     0     17       1     0
+Criscito                   Italy   Defender  225     1    114       6     0
+Crouch                   England    Forward   17     1      7       0     0
+Culina                 Australia Midfielder  270     4    153       0     0
+CaceresP1               Paraguay   Defender   90     0     71       0     0
+CaceresU                 Uruguay   Defender   90     0     32       4     0
+CaceresP2               Paraguay Midfielder  354     1    170      17     0
+Da Silva                Paraguay   Defender  480     1    235      11     0
+Daniel Alves              Brazil   Defender  310    11    215       6     0
+Danny                   Portugal    Forward  176     1     62       7     0
+De Rossi                   Italy Midfielder  270     3    204       9     0
+Deco                    Portugal Midfielder   62     0     45       1     0
+Dedic                   Slovenia    Forward   84     0     22       1     0
+Defoe                    England    Forward  173     5     17       1     0
+Demel                Ivory Coast   Defender  180     0     60       6     0
+Demerit                      USA   Defender  390     2    129       7     0
+Demichelis             Argentina   Defender  450     1    218       7     0
+Dempsey                      USA Midfielder  390    15    137       6     0
+Derdiyok             Switzerland    Forward  191     4     47       1     0
+Di Maria               Argentina Midfielder  356     7    148      12     0
+Di Natale                  Italy    Forward  153     6     55       2     0
+Dikgacoi            South Africa Midfielder  180     2    108       4     0
+Dindane              Ivory Coast    Forward  170     1     66       2     0
+Djebbour                 Algeria    Forward  123     3     19       1     0
+Donovan                      USA    Forward  390     7    165       9     0
+Doumbia              Ivory Coast    Forward   11     0      2       0     0
+Drogba               Ivory Coast    Forward  204     8     35       2     0
+Duda                    Portugal   Defender   70     0     18       2     0
+Durica                  Slovakia   Defender  360     1    159       4     0
+Eboue                Ivory Coast   Defender  251     3    126       6     0
+ [ reached getOption("max.print") -- omitted 453 rows ]
+> submit()
+
+| Sourcing your script...
+
+
+| Not quite, but you're learning! Try again.
+
+| Check the example output in the comments of the script I opened for you. Make sure you are selecting just the four columns shown in this example output. Try
+| running your code in the console and printing out the result to determine whether it's successfully generating the desired final data frame before you submit it.
+
+> wc_1
+   Team   Position Time Shots Passes Tackles Saves
+1 Ghana Goalkeeper  510     0    105       1    20
+> submit()
+
+| Sourcing your script...
+
+
+| Give it another try.
+
+| Check the example output in the comments of the script I opened for you. Make sure you are selecting just the four columns shown in this example output. Try
+| running your code in the console and printing out the result to determine whether it's successfully generating the desired final data frame before you submit it.
+
+> wc_1
+             Team   Position Shots    Time Passes
+1         Algeria Midfielder     0 Tackles      0
+2           Japan Midfielder     0 Tackles     14
+3          France   Defender     0 Tackles      6
+4          France Midfielder     1 Tackles      5
+5        Cameroon    Forward     2 Tackles      0
+6         Uruguay    Forward     0 Tackles      0
+7           Ghana   Defender     0 Tackles      2
+8           Ghana    Forward     0 Tackles      0
+9     Netherlands Midfielder     5 Tackles      0
+10        Nigeria   Defender     0 Tackles      1
+11        Denmark   Defender     2 Tackles     10
+12         Mexico   Defender     0 Tackles      2
+13      Argentina    Forward     2 Tackles      2
+14    North Korea Midfielder     1 Tackles     11
+15       Paraguay   Defender     1 Tackles     13
+16       Cameroon Midfielder     1 Tackles      7
+17       Portugal    Forward     5 Tackles      3
+18          Spain Midfielder     9 Tackles     18
+19         France Midfielder     0 Tackles      0
+20       Honduras Midfielder     1 Tackles      1
+21          Ghana    Forward     0 Tackles      1
+22       Portugal Midfielder     1 Tackles      0
+23         France    Forward     7 Tackles      1
+24          Ghana Midfielder     4 Tackles     11
+25          Ghana Midfielder     1 Tackles      2
+26          Spain   Defender     0 Tackles      0
+27        Uruguay Midfielder     5 Tackles     21
+28          Ghana Midfielder    11 Tackles      9
+29        England   Defender     0 Tackles     12
+30       Cameroon   Defender     0 Tackles      5
+31         Greece   Defender     1 Tackles      8
+32          Ghana Midfielder     3 Tackles     15
+33        Nigeria Midfielder     0 Tackles      1
+34        Germany   Defender     0 Tackles      6
+35         Brazil Midfielder     0 Tackles      1
+36    Switzerland Midfielder     3 Tackles      5
+37         Mexico Midfielder     4 Tackles      2
+38       Paraguay Midfielder     2 Tackles      3
+39       Paraguay    Forward     6 Tackles      2
+40    New Zealand Midfielder     0 Tackles      0
+41    Ivory Coast Goalkeeper     0 Tackles      0
+42        England Midfielder     2 Tackles      8
+43       Cameroon   Defender     0 Tackles      3
+44         Mexico    Forward     0 Tackles      3
+45            USA Midfielder     0 Tackles      0
+46      Australia   Defender     0 Tackles      2
+47          Chile Midfielder     2 Tackles      7
+48        Denmark Midfielder     0 Tackles      0
+49    Switzerland Midfielder     0 Tackles      1
+50        Algeria   Defender     1 Tackles      8
+51    Switzerland Goalkeeper     0 Tackles      0
+52        Denmark    Forward     4 Tackles      0
+53       Paraguay    Forward     2 Tackles      2
+54       Honduras   Defender     2 Tackles      4
+55    New Zealand Midfielder     0 Tackles      5
+56       Slovenia Midfielder     6 Tackles      5
+57         Mexico    Forward     2 Tackles      3
+58        Germany   Defender     1 Tackles     10
+59          Ghana Midfielder    12 Tackles     20
+60            USA   Defender     1 Tackles      9
+61    Ivory Coast   Defender     2 Tackles      5
+62      Argentina Midfielder     2 Tackles      4
+63       Paraguay Midfielder     0 Tackles      4
+64       Cameroon   Defender     0 Tackles      0
+65            USA   Defender     2 Tackles      5
+66        Algeria Midfielder     3 Tackles      1
+67        Algeria   Defender     1 Tackles     11
+68    Netherlands   Defender     0 Tackles      8
+69            USA Midfielder     6 Tackles      9
+70          Chile Goalkeeper     0 Tackles      0
+71       Slovenia   Defender     1 Tackles      5
+72      Australia Midfielder     3 Tackles      1
+73    New Zealand Midfielder     0 Tackles      0
+74       Portugal   Defender     1 Tackles      5
+75            USA    Forward     1 Tackles      0
+76          Italy Goalkeeper     0 Tackles      0
+77    Switzerland    Forward     0 Tackles      0
+78      Argentina   Defender     1 Tackles      1
+79          Spain Midfielder     0 Tackles     15
+80        Germany    Forward     4 Tackles      1
+81      Australia Midfielder     6 Tackles      1
+82          Italy Midfielder     2 Tackles      2
+83       Paraguay   Defender     4 Tackles      1
+84          Italy   Defender     0 Tackles     11
+85          Spain   Defender     1 Tackles     10
+86       Paraguay    Forward     3 Tackles      2
+87          Chile Midfielder     1 Tackles      9
+88      Australia   Defender     0 Tackles      4
+89        England   Defender     0 Tackles      4
+90       Portugal   Defender     2 Tackles     11
+91          Spain Goalkeeper     0 Tackles      0
+92         Mexico Midfielder     0 Tackles      1
+93        Uruguay    Forward     9 Tackles     11
+94       Slovakia   Defender     0 Tackles      2
+95       Slovenia   Defender     1 Tackles      2
+96    South Korea   Defender     2 Tackles      3
+97    North Korea   Defender     4 Tackles      5
+98        Algeria Goalkeeper     0 Tackles      0
+99         Greece    Forward     0 Tackles      2
+100      Honduras   Defender     0 Tackles      3
+101      Cameroon Midfielder     2 Tackles      2
+102           USA   Defender     1 Tackles     10
+103         Italy   Defender     2 Tackles      7
+104     Australia Midfielder     2 Tackles      3
+105   South Korea   Defender     0 Tackles     10
+106   North Korea    Forward     1 Tackles      0
+107      Cameroon    Forward     2 Tackles      1
+108       Denmark Midfielder     1 Tackles      7
+109   New Zealand Midfielder     0 Tackles      1
+110        France    Forward     3 Tackles      1
+111           USA Midfielder     0 Tackles      4
+112        France   Defender     0 Tackles      2
+113         Chile   Defender     0 Tackles      1
+114         Italy   Defender     1 Tackles      6
+115       England    Forward     1 Tackles      0
+116     Australia Midfielder     4 Tackles      0
+117      Paraguay   Defender     0 Tackles      0
+118       Uruguay   Defender     0 Tackles      4
+119      Paraguay Midfielder     1 Tackles     17
+120      Paraguay   Defender     1 Tackles     11
+121        Brazil   Defender    11 Tackles      6
+122      Portugal    Forward     1 Tackles      7
+123         Italy Midfielder     3 Tackles      9
+124      Portugal Midfielder     0 Tackles      1
+125      Slovenia    Forward     0 Tackles      1
+126       England    Forward     5 Tackles      1
+127   Ivory Coast   Defender     0 Tackles      6
+128           USA   Defender     2 Tackles      7
+129     Argentina   Defender     1 Tackles      7
+130           USA Midfielder    15 Tackles      6
+131   Switzerland    Forward     4 Tackles      1
+132     Argentina Midfielder     7 Tackles     12
+133         Italy    Forward     6 Tackles      2
+134  South Africa Midfielder     2 Tackles      4
+135   Ivory Coast    Forward     1 Tackles      2
+136       Algeria    Forward     3 Tackles      1
+137           USA    Forward     7 Tackles      9
+138   Ivory Coast    Forward     0 Tackles      0
+139   Ivory Coast    Forward     8 Tackles      2
+140      Portugal   Defender     0 Tackles      2
+141      Slovakia   Defender     1 Tackles      4
+142   Ivory Coast   Defender     3 Tackles      6
+143       Nigeria   Defender     0 Tackles      1
+144           USA Midfielder     2 Tackles      4
+145      Portugal Goalkeeper     0 Tackles      0
+146   Switzerland   Defender     0 Tackles      0
+147       Uruguay Midfielder     0 Tackles      0
+148        Brazil Midfielder     5 Tackles      6
+149   Netherlands    Forward     2 Tackles      2
+150   New Zealand Midfielder     1 Tackles      7
+151      Cameroon Midfielder     7 Tackles      2
+152     Australia Midfielder     1 Tackles      3
+153         Japan Midfielder     1 Tackles      9
+154       Denmark Midfielder     2 Tackles      0
+155      Cameroon Midfielder     2 Tackles      8
+156       Nigeria Goalkeeper     0 Tackles      0
+157       Denmark Midfielder     1 Tackles      1
+158      Honduras Midfielder     0 Tackles      4
+159         Chile Midfielder     1 Tackles      2
+160      Cameroon    Forward     4 Tackles      3
+161       Nigeria Midfielder     0 Tackles      5
+162        France   Defender     0 Tackles      4
+163        Brazil    Forward     9 Tackles      4
+164         Spain Midfielder     1 Tackles      2
+165   New Zealand    Forward     1 Tackles      1
+166           USA Midfielder     3 Tackles      5
+167   Switzerland Midfielder     1 Tackles      7
+168       Uruguay Midfielder     1 Tackles      3
+169         Chile Midfielder     1 Tackles      2
+170       Uruguay    Forward     0 Tackles      0
+171      Portugal   Defender     0 Tackles      1
+172      Honduras   Defender     1 Tackles      5
+173           USA    Forward     1 Tackles      0
+174       Uruguay    Forward    18 Tackles      0
+175        Mexico    Forward     4 Tackles      2
+176   Switzerland    Forward     2 Tackles      0
+177       Germany   Defender     1 Tackles     16
+178       Uruguay   Defender     2 Tackles     14
+179         Chile   Defender     0 Tackles      3
+180      Portugal   Defender     1 Tackles     13
+181        France   Defender     0 Tackles      2
+182     Australia Midfielder     2 Tackles      3
+183       Uruguay Midfielder     0 Tackles      1
+184         Italy Midfielder     0 Tackles      5
+185        Greece    Forward     3 Tackles      0
+186      Cameroon   Defender     1 Tackles      1
+187       England Midfielder    10 Tackles      5
+188   Ivory Coast    Forward     5 Tackles      1
+189       Algeria    Forward     3 Tackles      0
+190        France    Forward     3 Tackles      1
+191         Italy    Forward     1 Tackles      0
+192        Brazil   Defender     0 Tackles      4
+193        Brazil Midfielder     3 Tackles     11
+194        Mexico Midfielder     2 Tackles      4
+195       England   Defender     3 Tackles     17
+196       Uruguay   Defender     1 Tackles      9
+197           USA    Forward     4 Tackles      0
+198       Germany    Forward     2 Tackles      0
+199       Uruguay Midfielder     0 Tackles      2
+200         Chile Midfielder    10 Tackles      6
+ [ reached getOption("max.print") -- omitted 990 rows ]
+> submit()
+Successful Script: 
+# Add a `dplyr` or `tidyr` function to the pipe chain in the code 
+# at the bottom of this script to subset the `worldcup` dataset to 
+# four columns, so that the first lines of the resulting data 
+# frame (`wc_1`) look like this: 
+#
+##           Time   Passes  Tackles Saves
+## Abdoun      16        6        0     0
+## Abe        351      101       14     0
+## Abidal     180       91        6     0
+## Abou Diaby 270       111       5     0
+#
+# I have already loaded the `worldcup` data frame for you, so you 
+# can explore it and test out your code in the console.
+#
+# When you are ready submit your answer, save the script and type 
+# submit(), or type reset() to reset the script to its original 
+# state. 
+
+library(tidyr)
+library(dplyr)
+wc_1 <- worldcup %>%
+select(Time, Passes, Tackles, Saves)
+
+
+| Sourcing your script...
+
+
+| You got it!
+
+  |===================                                                                                                                                       |  12%
+| In this question, you will continue to build on the data cleaning you started in the last question. I opened a new R script for you with the previous question
+| completed. As a next step, you now need to reduce the data frame to show the mean of each column selected in the previous step. To do this, add a function from
+| `dplyr` or `tidyr` to the pipe chain in the script. Your goal is to re-create the example output shown in the comments of the script. When you are ready to
+| submit your script, save the script and type `submit()`, or type `reset()` to reset the script to its original state.
+
+> wc_1
+                    Time Passes Tackles Saves
+Abdoun                16      6       0     0
+Abe                  351    101      14     0
+Abidal               180     91       6     0
+Abou Diaby           270    111       5     0
+Aboubakar             46     16       0     0
+Abreu                 72     15       0     0
+Addy                 138     51       2     0
+Adiyiah               33      9       0     0
+Afellay               21     22       0     0
+Afolabi              103     38       1     0
+Agger                270    120      10     0
+Aguilar               55     31       2     0
+Aguero               106     57       2     0
+Ahn Young-Hak        270    123      11     0
+Alcaraz              390    172      13     0
+Alexandre Song        90     59       7     0
+Almeida              136     42       3     0
+Alonso               506    465      18     0
+Alou Diarra           82     31       0     0
+Alvarez              180     57       1     0
+Amoah                 11      4       1     0
+Amorim                 5      7       0     0
+Anelka               117     37       1     0
+Annan                510    307      11     0
+Appiah               105     54       2     0
+Arbeloa               13     12       0     0
+Arevalo Rios         570    195      21     0
+Asamoah              480    214       9     0
+ColeA                360    142      12     0
+Assou-Ekotto         270    116       5     0
+Avraam Papadopoulos  270     70       8     0
+Ayew                 389    170      15     0
+Ayila Yussuf          90     44       1     0
+Badstuber            167     84       6     0
+Baptista              82     42       1     0
+Barnetta             227    104       5     0
+Barrera              149     59       2     0
+Barreto              111     38       3     0
+Barrios              308     89       2     0
+Barron                 1      0       0     0
+Barry                270     23       0     8
+BarryG               264    171       8     0
+Bassong              163     71       3     0
+Bautista              45      8       3     0
+Beasley               10      4       0     0
+Beauchamp             90     33       2     0
+Beausejour           360    100       7     0
+Beckmann              28      8       0     0
+Behrami               31      4       1     0
+Belhadj              270    146       8     0
+Benaglio             270     75       0    11
+Bendtner             242     70       0     0
+Benitez               83     25       2     0
+Bernardez             90     34       4     0
+Bertos               270     79       5     0
+Birsa                261     61       5     0
+Blanco               112     60       3     0
+BoatengGe            287    125      10     0
+BoatengGh            464    220      20     0
+Bocanegra            390    130       9     0
+Boka                  90     50       5     0
+Bolatti               98     97       4     0
+Bonet                300    108       4     0
+Bong                  56     12       0     0
+Bornstein            200     72       5     0
+Boudebouz             74     28       1     0
+Bougherra            270     89      11     0
+Boulahrouz           180     81       8     0
+Bradley              390    210       9     0
+Bravo                360     58       0     4
+Brecko               270     95       5     0
+Bresciano            132     47       1     0
+Brockie               11      5       0     0
+Bruno Alves          360    166       5     0
+Buddle                39     12       0     0
+Buffon                45      4       0     0
+Bunjaku               13      5       0     0
+Burdisso             341    167       1     0
+Busquets             511    466      15     0
+Cacau                132     54       1     0
+Cahill               146     39       1     0
+Camoranesi            76     45       2     0
+Caniza                90     44       1     0
+Cannavaro            270    138      11     0
+Capdevila            540    310      10     0
+Cardozo              204     53       2     0
+Carmona              270    175       9     0
+Carney               180     56       4     0
+Carragher            135     74       4     0
+Carvalho             360    173      11     0
+Casillas             540     67       0    11
+Castro                33     21       1     0
+Cavani               435    151      11     0
+Cech                  90     35       2     0
+Cesar                270     89       2     0
+Cha Du-Ri            270    105       3     0
+Cha Jong-Hyok        255     74       5     0
+Chaouchi              90     17       0     2
+Charisteas            61     12       2     0
+Chavez               270     62       3     0
+Chedjou               90     77       2     0
+Cherundolo           390    180      10     0
+Chiellini            270    155       7     0
+Chipperfield         138     50       3     0
+Cho Yong-Hyung       360    111      10     0
+Choe Kum-Chol         23     13       0     0
+Choupo-Moting        147     38       1     0
+Christian Poulsen    270    179       7     0
+Christie              21      9       1     0
+Cisse                 55      7       1     0
+Clark                121     42       4     0
+Clichy                90     46       2     0
+Contreras             54     17       1     0
+Criscito             225    114       6     0
+Crouch                17      7       0     0
+Culina               270    153       0     0
+CaceresP1             90     71       0     0
+CaceresU              90     32       4     0
+CaceresP2            354    170      17     0
+Da Silva             480    235      11     0
+Daniel Alves         310    215       6     0
+Danny                176     62       7     0
+De Rossi             270    204       9     0
+Deco                  62     45       1     0
+Dedic                 84     22       1     0
+Defoe                173     17       1     0
+Demel                180     60       6     0
+Demerit              390    129       7     0
+Demichelis           450    218       7     0
+Dempsey              390    137       6     0
+Derdiyok             191     47       1     0
+Di Maria             356    148      12     0
+Di Natale            153     55       2     0
+Dikgacoi             180    108       4     0
+Dindane              170     66       2     0
+Djebbour             123     19       1     0
+Donovan              390    165       9     0
+Doumbia               11      2       0     0
+Drogba               204     35       2     0
+Duda                  70     18       2     0
+Durica               360    159       4     0
+Eboue                251    126       6     0
+Echiejile             67     22       1     0
+Edu                  198    116       4     0
+Eduardo              360     51       0    17
+Eggimann               1      0       0     0
+Eguren                 2      1       0     0
+Elano                140     57       6     0
+Elia                  85     38       2     0
+Elliott              270    119       7     0
+Emana                117     59       2     0
+Emerton              254     89       3     0
+Endo                 389    147       9     0
+Enevoldsen            56     10       0     0
+Enoh                 135     56       8     0
+Enyeama              270     30       0    20
+Eriksen               44     20       1     0
+Espinoza             135     36       4     0
+Estrada               37     16       2     0
+Etoo                 270     89       3     0
+Etuhu                270    111       5     0
+Evra                 180     92       4     0
+Fabiano              418     89       4     0
+Fabregas              94    116       2     0
+Fallon               222     60       1     0
+Feilhaber            165     71       5     0
+Fernandes            212     56       7     0
+FernandezUM           75     17       3     0
+FernandezC           155     72       2     0
+FernandezUF            7      5       0     0
+Ferreira              90     37       1     0
+Figueroa             270     94       5     0
+Findley              167     40       0     0
+Forlan               564    202       0     0
+Franco               253     71       2     0
+Frei                  63     11       0     0
+Friedrich            540    244      16     0
+Fucile               371    115      14     0
+Fuentes               90     27       3     0
+Fabio Coentr~ao      360    152      13     0
+Gallas               270     96       2     0
+Garcia                72     24       3     0
+Gargano               91     44       1     0
+Gattuso               45     13       5     0
+Gekas                169     26       0     0
+Geremi               195     93       1     0
+Gerrard              360    227       5     0
+Gervinho             182     60       1     0
+Ghezzal               40      8       0     0
+Gignac                95     19       1     0
+Gilardino            117     32       0     0
+Gilberto              33      6       4     0
+Gilberto Silva       450    299      11     0
+Giovani dos Santos   360    106       4     0
+Glen Johnson         357    173      17     0
+Godin                315    120       9     0
+GomezU                85     18       0     0
+GomezG                57     18       0     0
+GonzalezU             63     34       2     0
+GonzalezC            138     41       6     0
+Gourcuff             100     40       3     0
+Govou                162     35       4     0
+Grafite                5      4       0     0
+Green                 90     21       0     3
+Grella                45     18       2     0
+Grichting            270     82       6     0
+Gronkjaer            101     29       3     0
+Guardado             142     92       2     0
+Guevara              156     60       6     0
+Gutierrez            191     83      11     0
+Guedioura             38     18       1     0
+Gyan                 501    151       1     0
+Halliche             270     94       4     0
+Hamidou              270     54       0     9
+Hamsik               358    143       3     0
+Handanovic           270     66       0    13
+Haruna               180     77       3     0
+Hasebe               375    125       8     0
+Heinze               360    188       6     0
+Heitinga             540    259      10     0
+Henry                 53     21       2     0
+Hernandez            169     37       1     0
+Heskey               176     53       7     0
+Higuain              341     93       5     0
+Holden                 4      2       0     0
+Holman               138     49       2     0
+Holosko               29     11       1     0
+Honda                390    143       5     0
+Hong Yong-Jo         270    107       3     0
+Howard               390     81       0    14
+Huggel               258     87       8     0
+Huntelaar             48     12       0     0
+Iaquinta             270     48       3     0
+Idrissou              50     23       1     0
+Inamoto                3      5       0     0
+Iniesta              437    299      11     0
+Inkoom               187     62       3     0
+Inler                270    138       6     0
+Isla                 332    123      10     0
+Ivanovic             270    115       2     0
+Izaguirre            180     51       8     0
+Jacobsen             270     95       3     0
+Jakob Poulsen         60     40       0     0
+Jakubko                2      1       0     0
+James                270     72       0     6
+Jansen                73     44       3     0
+Jara                 308    187       8     0
+Javi Martinez         17     17       0     0
+Jedinak               16     15       0     0
+Jendrisek            250     55       4     0
+ [ reached getOption("max.print") -- omitted 345 rows ]
+> submit()
+Sucessful Script:
+
+# After the previous question, you should have transformed the 
+# `worldcup` data to look like this:
+#
+##           Time   Passes  Tackles Saves
+## Abdoun      16        6        0     0
+## Abe        351      101       14     0
+## Abidal     180       91        6     0
+## Abou Diaby 270       111       5     0
+#
+# Now add a `dplyr` or `tidyr` function to the pipe chain in the 
+# code at the bottom of this script so that `wc_2` data frame looks 
+# like this, with four columns, and a single observation (the 
+# mean value of each variable): 
+#
+##       Time   Passes  Tackles     Saves
+##   208.8639 84.52101 4.191597 0.6672269
+#
+# I have already loaded the `worldcup` data frame for you, so you 
+# can explore it and test out your code in the console.
+#
+# When you are ready submit your answer, save the script and type 
+# submit(), or type reset() to reset the script to its original 
+# state. 
+
+wc_2 <- worldcup %>% 
+  select(Time, Passes, Tackles, Saves) %>%
+summarize(Time = mean(Time),
+          Passes = mean(Passes),
+          Tackles = mean(Tackles),
+          Saves = mean(Saves))
+| Sourcing your script...
+
+
+| Perseverance, that's the answer.
+
+  |======================================                                                                                                                    |  25%
+| In this question, you will again continue to build on the data cleaning you started in the last two questions. I opened a new R script for you with the previous
+| steps completed. As a next step, you now need to rearrange the data frame to have one column with each variable's name and one column with mean values for each
+| variable. To do this, add a function from `dplyr` or `tidyr` to the pipe chain in the script. Your goal is to re-create the example output shown in the comments
+| of the script. When you are ready to submit your script, save the script and type `submit()`, or type `reset()` to reset the script to its original state.
+
+> wc_2
+      Time   Passes  Tackles     Saves
+1 208.8639 84.52101 4.191597 0.6672269
+Successful Script:
+# After the previous question, you should have transformed the 
+# `worldcup` data to look like this:
+#
+##       Time   Passes  Tackles     Saves
+##   208.8639 84.52101 4.191597 0.6672269
+#
+# Now add a `dplyr` or `tidyr` function to the pipe chain in the 
+# code at the bottom of this script so that the `wc_3` data frame looks 
+# like this, with variable names in one column and the mean value
+# of each variable in another column: 
+#
+##      var           mean
+##     Time    208.8638655
+##   Passes     84.5210084
+##  Tackles      4.1915966
+##    Saves      0.6672269
+#
+# I have already loaded the `worldcup` data frame for you, so you 
+# can explore it and test out your code in the console.
+#
+# When you are ready submit your answer, save the script and type 
+# submit(), or type reset() to reset the script to its original 
+# state. 
+
+wc_3 <- worldcup %>% 
+  select(Time, Passes, Tackles, Saves) %>%
+  summarize(Time = mean(Time),
+            Passes = mean(Passes),
+            Tackles = mean(Tackles),
+            Saves = mean(Saves)) %>%
+  gather(key = var, value= mean)
+  > submit()
+
+| Sourcing your script...
+
+
+| All that hard work is paying off!
+
+  |==========================================================                                                                                                |  38%
+| In this question, you will continue to build on the data cleaning in the last three questions. I opened a new R script for you with the previous steps completed.
+| As a next step, you now round the mean values to one decimal point. To do this, add a function from `dplyr` or `tidyr` to the pipe chain in the script. Your goal
+| is to re-create the example output shown in the comments of the script. When you are ready to submit your script, save the script and type `submit()`, or type
+| `reset()` to reset the script to its original state.
+
+> wc_3
+      var        mean
+1    Time 208.8638655
+2  Passes  84.5210084
+3 Tackles   4.1915966
+4   Saves   0.6672269
+> Sucessful Script:
+
+> submit()
+
+| Sourcing your script...
+
+Error in eval(ei, envir) : object 'wc' not found
+
+| Try again. Getting it right on the first try is boring anyway!
+
+| Check the example output in the comments of the script I opened for you. You may find the `round` function useful. Try running your code in the console and
+| printing out the result to determine whether it's successfully generating the desired final data frame before you submit it.
+
+> wc_4 <- worldcup %>% 
++     select(Time, Passes, Tackles, Saves) %>%
++     summarize(Time = mean(Time),
++               Passes = mean(Passes),
++               Tackles = mean(Tackles),
++               Saves = mean(Saves)) %>%
++     gather(var, mean) %>%
++     mutate(mean = round(mean, 1))
+> wc_4
+      var  mean
+1    Time 208.9
+2  Passes  84.5
+3 Tackles   4.2
+4   Saves   0.7
+> submit()
+
+Script:
+# After the previous question, you should have transformed the `worldcup`
+# data to look like this:
+#
+##      var           mean
+##     Time    208.8638655
+##   Passes     84.5210084
+##  Tackles      4.1915966
+##    Saves      0.6672269
+#
+# Now add a `dplyr` or `tidyr` function to the pipe chain in the 
+# code at the bottom of this script so that the `wc_4` data frame looks 
+# like this, with variable means rounded to one decimal place: 
+#
+##      var     mean
+##     Time    208.9
+##   Passes     84.5
+##  Tackles      4.2
+##    Saves      0.7
+#
+# I have already loaded the `worldcup` data frame for you, so you 
+# can explore it and test out your code in the console.
+#
+# When you are ready submit your answer, save the script and type 
+# submit(), or type reset() to reset the script to its original 
+# state. 
+
+wc_4 <- worldcup %>% 
+  select(Time, Passes, Tackles, Saves) %>%
+  summarize(Time = mean(Time),
+            Passes = mean(Passes),
+            Tackles = mean(Tackles),
+            Saves = mean(Saves)) %>%
+  gather(var, mean) %>%
+  mutate(mean = round(mean, 1))
+
+| Sourcing your script...
+
+Error in eval(ei, envir) : object 'wc' not found
+
+| Perseverance, that's the answer.
+
+  |=============================================================================                                                                             |  50%
+| In this question, we'll be doing similar data cleaning with a new dataset. I have loaded a dataset called `titanic` for you. For this question, you need to
+| subset the original dataframe down to four columns. Your goal is to re-create the example output shown in the comments of the script by adding a `dplyr` or
+| `tidyr` function to the pipe chain.  When you are ready to submit your script, save the script and type `submit()`, or type `reset()` to reset the script to its
+| original state.
+
+Successful script:
+
+
+# Add a `dplyr` or `tidyr` function to the pipe chain in the code 
+# at the bottom of this script to subset the `titanic` dataset to 
+# four columns, so that the first lines of the resulting data 
+# frame (`titanic_1`) look like this: 
+#
+##  Survived  Pclass   Age      Sex
+##         0       3    22     male
+##         1       1    38   female
+##         1       3    26   female
+##         1       1    35   female
+##         0       3    35     male
+##         0       3    NA     male
+#
+# I have already loaded the `titanic` data frame for you, so you 
+# can explore it and test out your code in the console.
+#
+# When you are ready submit your answer, save the script and type 
+# submit(), or type reset() to reset the script to its original 
+# state. 
+
+titanic_1 <- titanic %>% 
+  select(Survived, Pclass, Age, Sex)
+
+
+> submit()
+
+| Sourcing your script...
+
+
+| Keep up the great work!
+
+  |================================================================================================                                                          |  62%
+| In this question, you will continue to build on the data cleaning you started in the last question. I opened a new R script for you with the previous question
+| completed. As a next step, you now need to remove any observations that are missing a value for Age. To do this, add a function from `dplyr` or `tidyr` to the
+| pipe chain in the script. Your goal is to re-create the example output shown in the comments of the script. When you are ready to submit your script, save the
+| script and type `submit()`, or type `reset()` to reset the script to its original state.
+
+Scuessful SCript: 
+
+# After the previous question, you should have transformed the 
+# `titanic` data to look like this:
+#
+##  Survived  Pclass   Age      Sex
+##         0       3    22     male
+##         1       1    38   female
+##         1       3    26   female
+##         1       1    35   female
+##         0       3    35     male
+##         0       3    NA     male
+#
+# Now add a `dplyr` or `tidyr` function to the pipe chain in the 
+# code at the bottom of this script so that `titanic_2` data frame 
+# looks like this, with observations where "Age" was missing removed: 
+#
+##  Survived  Pclass   Age      Sex
+##         0       3    22     male
+##         1       1    38   female
+##         1       3    26   female
+##         1       1    35   female
+##         0       3    35     male
+##         0       1    54     male
+#
+# I have already loaded the `titanic` data frame for you, so you 
+# can explore it and test out your code in the console.
+#
+# When you are ready submit your answer, save the script and type 
+# submit(), or type reset() to reset the script to its original 
+# state. 
+
+titanic_2 <- titanic %>% 
+  select(Survived, Pclass, Age, Sex) %>%
+  filter(!is.na(Age))
+  
+  > submit()
+
+| Sourcing your script...
+
+
+| That's a job well done!
+
+  |====================================================================================================================                                      |  75%
+| In this question, you will again continue to build on the data cleaning you started in the last two questions. I opened a new R script for you with the previous
+| steps completed. As a next step, you now need to create a new column called agecat that divides a person's age into three broad categories (Under 15, 15 to 50,
+| Over 50). To do this, add a function from `dplyr` or `tidyr` to the pipe chain in the script. Your goal is to re-create the example output shown in the comments
+| of the script. When you are ready to submit your script, save the script and type `submit()`, or type `reset()` to reset the script to its original state.
+
+Scuessful SCript:
+titanic_3 <- titanic %>% 
+  select(Survived, Pclass, Age, Sex) %>%
+  filter(!is.na(Age)) %>%
+mutate(agecat = cut(Age, breaks = c(0, 14.99, 50, 150), 
+                    include.lowest = TRUE,
+                    labels = c("Under 15", "15 to 50",
+                               "Over 50"))) 
+                               
+ 
+| Sourcing your script...
+
+
+| You got it right!
+
+  |=======================================================================================================================================                   |  88%
+| In this question, you will continue to build on the data cleaning you from the last three questions. I opened a new R script for you with the previous steps
+| completed. As a next step, you now need to generate a data frame with the number of passengers, number of survivors, and percent survival stratified by passenger
+| class, age category, and sex. To do this, add one or more functions from `dplyr` or `tidyr` to the pipe chain in the script. Your goal is to re-create the
+| example output shown in the comments of the script. When you are ready to submit your script, save the script and type `submit()`, or type `reset()` to reset the
+| script to its original state.
+
+SUccesful Script:
+# After the previous question, you should have transformed the `titanic`
+# data to look like this:
+#
+##   Survived Pclass   Age     Sex      agecat
+##          0      3    22    male    15 to 50
+##          1      1    38  female    15 to 50
+##          1      3    26  female    15 to 50
+##          1      1    35  female    15 to 50
+##          0      3    35    male    15 to 50
+##          0      1    54    male     Over 50
+#
+# Add one or more `dplyr` or `tidyr` functions to the pipe chain in 
+# the code at the bottom of the script to change the `titanic` 
+# dataset. The first six lines of the final `titanic_4` dataset 
+# should look like the following example, with the number of
+# passengers, number of survivors, and percent survival stratified
+# by passenger class, age category, and sex. Be sure to use the 
+# same column names as shown in the example output. 
+#
+## Pclass   agecat    Sex      N     survivors   perc_survived
+## <int>   <fctr>    <chr>   <int>     <int>         <dbl>
+##   1    Under 15  female     2         1        50.000000
+##   1    Under 15    male     3         3       100.000000
+##   1    15 to 50  female    70        68        97.142857
+##   1    15 to 50    male    72        32        44.444444
+##   1    Over 50   female    13        13       100.000000
+##   1    Over 50     male    26         5        19.230769
+#
+# I have already loaded the `titanic` data frame for you, so you 
+# can explore it and test out your code in the console.
+#
+# When you are ready submit your answer, save the script and type 
+# submit(), or type reset() to reset the script to its original 
+# state. 
+
+titanic_4 <- titanic %>% 
+  select(Survived, Pclass, Age, Sex) %>%
+  filter(!is.na(Age)) %>%
+  mutate(agecat = cut(Age, breaks = c(0, 14.99, 50, 150), 
+                      include.lowest = TRUE,
+                      labels = c("Under 15", "15 to 50",
+                                 "Over 50"))) %>%
+  group_by(Pclass, agecat, Sex) %>%
+  summarize(N = n(),
+            survivors = sum(Survived == 1),
+            perc_survived = 100 * survivors / N)
+> submit()
+
+| Sourcing your script...
+
+
+| Your dedication is inspiring!
+
+
+
+
