@@ -1,1 +1,196 @@
 
+Selection: 15
+
+| Attempting to load lesson dependencies...
+
+| Package ‘stringr’ loaded correctly!
+
+  |                                                                                                                                                          |   0%
+
+| The stringr package is wonderful for working with strings in R. Most of the functions in stringr take the same two arguments, a string and then a regex.
+
+...
+
+  |========                                                                                                                                                  |   5%
+| However before we get into stringr functions let's cover some of the fundamental string functions in R that use regular expressions.
+
+...
+
+  |===============                                                                                                                                           |  10%
+| In previous lessons we’ve been using grepl() to see if a regex matches a string. grepl() stands for "grep logical." Try out grepl() below by entering
+| grepl("[Ii]", c("Hawaii", "Illinois", "Kentucky")) into the R console.
+
+> grepl("[Ii}",c("Hawaii","Illinois","Kentucky"))
+Error in grepl("[Ii}", c("Hawaii", "Illinois", "Kentucky")) : 
+  invalid regular expression '[Ii}', reason 'Missing ']''
+> grepl("[Ii}",c("Hawaii","Illinois","Kentucky"))
+Error in grepl("[Ii}", c("Hawaii", "Illinois", "Kentucky")) : 
+  invalid regular expression '[Ii}', reason 'Missing ']''
+> grepl("[Ii]",c("Hawaii","Illinois","Kentucky"))
+[1]  TRUE  TRUE FALSE
+
+| All that hard work is paying off!
+
+  |=======================                                                                                                                                   |  15%
+| There’s also the old fashioned grep() which returns the indices of the vector that match the regex argument. Enter grep("[Ii]", c("Hawaii", "Illinois",
+| "Kentucky")) into the R console to test it out.
+
+> grep("[Ii]",c("Hawaii","Illinois","Kentucky"))
+[1] 1 2
+
+| You got it!
+
+  |===============================                                                                                                                           |  20%
+| What would the expression grep("[Aa]", c("Florida", "Alabama", "Idaho")) be evaluated to?
+
+1: 1 2
+2: 1 2 3
+3: 1 3
+4: 2 3
+
+Selection: 2
+
+| All that hard work is paying off!
+
+  |======================================                                                                                                                    |  25%
+| The sub() function takes as arguments a regex, a “replacement,” and a vector of strings. This function will replace the first instance of that regex found in
+| each string. Try out sub() by entering sub("[Ii]", "1", c("Hawaii", "Illinois", "Kentucky")) into the R console.
+
+> sub("[Ii]",c("Hawaii","Illinois","Kentucky"))
+Error in sub("[Ii]", c("Hawaii", "Illinois", "Kentucky")) : 
+  argument "x" is missing, with no default
+> sub("[Ii]","1",c("Hawaii","Illinois","Kentucky"))
+[1] "Hawa1i"   "1llinois" "Kentucky"
+
+| Excellent work!
+
+  |==============================================                                                                                                            |  30%
+| The gsub() function is nearly the same as sub() except it will replace every instance of the regex that is matched in each string. Enter the exact line of code
+| you used in the previous question, except use gsub() instead of sub().
+
+> gsub("[Ii]","1",c("Hawaii","Illinois","Kentucky"))
+[1] "Hawa11"   "1ll1no1s" "Kentucky"
+
+| You're the best!
+
+  |======================================================                                                                                                    |  35%
+| The expression gsub("[Aao]", "0", c("Georgia", "Minnesota", "California")) once evaluated will result in which of the following
+
+1: Ge0rgia Minnes0ta Calif0rnia
+2: Ge0rgi0 Minnes0t0 C0lif0rni0
+3: Georgi0 Minnesot0 C0liforni0
+
+Selection: 2
+
+| Excellent work!
+
+  |==============================================================                                                                                            |  40%
+| The last functions we'll talk about before we get into stringr's functions is strsplit().
+
+...
+
+  |=====================================================================                                                                                     |  45%
+| Store the names of all of the US states that contain two adjacent s's by entering two_s <- state.name[grep("ss", state.name)] into the R console.
+
+> two_s <- state.name[grep("ss", state.name)]
+
+| That's correct!
+
+  |=============================================================================                                                                             |  50%
+| Now take a look at the value of this variable by entering two_s into the R console.
+
+> two_s
+[1] "Massachusetts" "Mississippi"   "Missouri"      "Tennessee"    
+
+| Your dedication is inspiring!
+
+  |=====================================================================================                                                                     |  55%
+| In order to split each string where the s's are located enter strsplit(two_s, "ss") into the R console.
+
+> strsplit(two_s,"ss")
+[[1]]
+[1] "Ma"        "achusetts"
+
+[[2]]
+[1] "Mi"   "i"    "ippi"
+
+[[3]]
+[1] "Mi"   "ouri"
+
+[[4]]
+[1] "Tenne" "ee"   
+
+
+| All that practice is paying off!
+
+  |============================================================================================                                                              |  60%
+| Finally onto the stringr package! This package takes a “data first” approach to functions involving regex, so usually the string is the first argument and the
+| regex is the second argument. The majority of the function names in stringr begin with str_.
+
+...
+
+  |====================================================================================================                                                      |  65%
+| The str_extract() function returns the sub-string of a string that matches the providied regular expression. Enter str_extract("Camaro Z28", "[0-9]+") into the R
+| console to give this function a spin.
+
+> str_extract("Camaro Z28","[0-9]+")
+[1] "28"
+
+| You nailed it! Good job!
+
+  |============================================================================================================                                              |  70%
+| The str_order() function returns a numeric vector that corresponds to the alphabetical order of the strings in the provided vector. Enter str_order(c("p", "e",
+| "n", "g")) into the R console.
+
+> str_order(c("p","e","n","g"))
+[1] 2 4 3 1
+
+| You are amazing!
+
+  |====================================================================================================================                                      |  75%
+| The str_pad() function pads strings with other characters which is often useful when the string is going to be eventually printed for a person to read. Try this
+| out by entering str_pad("Thai", width = 8, side = "left", pad = "-") into the R console.
+
+> str_pad("Thai", width = 8, side= "left", pad= "-")
+[1] "----Thai"
+
+| You got it right!
+
+  |===========================================================================================================================                               |  80%
+| The str_to_title() function acts just like tolower() and toupper() except it puts strings into Title Case. Enter str_to_title(c("CAPS", "low", "Title")) into the
+| R console to see how this works.
+
+> str_to_tile(c("CAPS", "low", "Title"))
+Error in str_to_tile(c("CAPS", "low", "Title")) : 
+  could not find function "str_to_tile"
+> str_to_title(c("CAPS", "low", "Title"))
+[1] "Caps"  "Low"   "Title"
+
+| That's the answer I was looking for.
+
+  |===================================================================================================================================                       |  85%
+| The str_trim() function deletes whitespace from both sides of a string. Enter str_trim(" trim me ") into the R console.
+
+> str_trim(" trim me ")
+[1] "trim me"
+
+| Perseverance, that's the answer.
+
+  |===========================================================================================================================================               |  90%
+| Lastly the word() function allows you to index each word in a string as if it were a vector. Enter word("See Spot run.", 2) into the R console to test this out.
+
+> word("See Spot run.",2)
+[1] "Spot"
+
+| Keep up the great work!
+
+  |==================================================================================================================================================        |  95%
+| That's the end of our tour of stringr!
+
+...
+
+  |==========================================================================================================================================================| 100%
+| Would you like to receive credit for completing this course on Coursera.org?
+
+1: Generate Code
+2: No
