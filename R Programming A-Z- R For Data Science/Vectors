@@ -1,0 +1,22 @@
+creating vectors in r, rep fuctions, seq functions, and checking type for vectors.
+
+MYFIRSTVECTOR <- c(3, 45, 67, 754)
+MYFIRSTVECTOR
+is.numeric(MYFIRSTVECTOR)
+is.integer(MYFIRSTVECTOR)
+
+V2 <- c(3L, 12L, 243L, 0L)
+is.numeric(V2)
+is.integer(V2)
+is.double(V2)
+
+v3 <-c("a","B34", "Hello")
+is.numeric(v3)
+is.character(v3)
+is.double(v3)
+
+seq()
+rep()
+seq(1,15,2)
+
+rep("a",2)
