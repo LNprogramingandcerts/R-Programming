@@ -1,0 +1,16 @@
+rm(counter)
+counter<-0
+for(i in rnorm(1000)){
+  if(i > -1 & i < 1){
+    counter <- counter + 1
+  }
+}
+ counter
+ r <- counter/1000
+ 
+ result:
+ >  counter
+[1] 679
+>  r <- counter/1000
+>  r
+[1] 0.679
