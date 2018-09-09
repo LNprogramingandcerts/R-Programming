@@ -1,0 +1,16 @@
+Creating for loops in R
+
+for(i in 1:5){
+  print("Hello R")
+}
+
+Results:
+> for(i in 1:5){
++   print("Hello R")
++ }
+[1] "Hello R"
+[1] "Hello R"
+[1] "Hello R"
+[1] "Hello R"
+[1] "Hello R"
+> 
