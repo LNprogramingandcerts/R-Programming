@@ -1,0 +1,21 @@
+If else statements
+
+rm(answer)
+x <- rnorm(1)
+if(x > 1){
+  answer <- "Greater than 1"
+} else{
+  answer <- "Less than 1"
+  
+  if(x >= -1){
+    answer <- "Between -1 and 1"
+  } else{
+    answer <- "Less than -1"
+  }
+}
+
+Results
+ 0.6693227
+> answer
+[1] "Between -1 and 1"
+> 
