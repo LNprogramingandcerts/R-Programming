@@ -1,0 +1,23 @@
+Types functions use in R
+Help function
+?_ before a fuction bring description function in r
+
+rnorm()
+seq()
+rep()
+is.numeric()
+is.character()
+c()
+for( in  ){}
+while(){}
+[]
+1:5
+print()
+rm()
+paste()
+typeof()
+sqrt()
+paste()
+
+rnorm(n=5, mean=10, sd=8)
+#?
