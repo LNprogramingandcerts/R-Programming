@@ -1,0 +1,19 @@
+charlie <- 1:5
+charlie
+
+names(charlie) <- c("a","v","C","d","e")
+charlie["a"]
+names(charlie) < NULL
+charlie
+
+temp.vec <- rep(c("a","b","zZ"), each = 3)
+temp.vec
+
+Bravo <- matrix(temp.vec, 3, 3)
+Bravo
+
+rownames(Bravo) <- c("How","are","you?")
+colnames(Bravo) <- c("X","Y","Z")
+
+Bravo["are","Y"] <- 0
+Bravo
