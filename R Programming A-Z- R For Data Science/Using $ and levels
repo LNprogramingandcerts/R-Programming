@@ -1,0 +1,9 @@
+# Using the $
+
+stats[3,]
+
+stats[3, "Birth.rate"]
+stats$Internet.users
+stats$Internet.users[2]
+
+levels(stats[,"Income.Group"])
