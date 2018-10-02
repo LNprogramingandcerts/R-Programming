@@ -1,0 +1,8 @@
+rm(stat)
+
+nrow(stats)
+ncol(stats)
+head(stats, n=10)
+tail(stats)
+str(stats)
+summary(stats)
