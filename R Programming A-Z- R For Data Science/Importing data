@@ -1,0 +1,12 @@
+?read.csv()
+
+#Method 1: Select The File Manually
+
+stat  <- read.csv(file.choose())
+stat
+
+#Method 2: set WD and read data
+getwd()
+setwd("C:\\Users\\Kane\\Desktop\\Programinng\\R Programing\\RUDEMY\\Begom")
+rm(stat)
+stats <- read.csv("DemographicData.csv")
