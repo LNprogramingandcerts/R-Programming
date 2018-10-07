@@ -1,0 +1,26 @@
+BILE <- read.csv(file.choose())
+str(BILE)
+tail(BILE)
+filter<- BILE$Year == '2013'
+filter1 <-BILE$Year == '1960'
+
+B20 <- BILE[filter,]
+B19 <- BILE[filter1,]
+B19
+B20
+
+
+#merged
+mydf1960 <- data.frame("Code"= Country_Code, "Life Expectancy"= Life_Expectancy_At_Birth_1960)
+mydf2013 <- data.frame("Code"= Country_Code, "Life Expectancy"= Life_Expectancy_At_Birth_2013)
+mydf1960
+
+B19mer <- merge(B19, mydf1960, by.x="Country.Code", by.y="Code")
+B20mer <- merge(B20, mydf2013, by.x="Country.Code", by.y="Code")
+
+B20mer
+
+
+qplot(dat=B20mer, x=Fertility.Rate, y=Life.Expectancy, colour = Region)
+qplot(dat=B19mer, x=Fertility.Rate, y=Life.Expectancy, colour = Region)
+?qplot
