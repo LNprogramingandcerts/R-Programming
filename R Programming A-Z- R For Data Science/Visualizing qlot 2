@@ -1,0 +1,9 @@
+qplot(data=merged, x=Internet.users, y=Birth.rate)
+qplot(data=merged, x=Internet.users, y=Birth.rate, colour = Region)
+#Shapes
+qplot(data=merged, x=Internet.users, y=Birth.rate, colour = Region, size=I(5), shape=I(23))
+#Transparency
+qplot(data=merged, x=Internet.users, y=Birth.rate, colour = Region, size=I(5), shape=I(19), alpha=I(0.5))
+
+#Title
+qplo
