@@ -6,4 +6,4 @@ qplot(data=merged, x=Internet.users, y=Birth.rate, colour = Region, size=I(5), s
 qplot(data=merged, x=Internet.users, y=Birth.rate, colour = Region, size=I(5), shape=I(19), alpha=I(0.5))
 
 #Title
-qplo
+qplot(data=merged, x=Internet.users, y=Birth.rate, colour = Region, size=I(5), shape=I(19), alpha=I(0.5), main="Birth Rate vs Internet Users")
