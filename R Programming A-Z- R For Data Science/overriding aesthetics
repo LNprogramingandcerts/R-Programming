@@ -1,0 +1,16 @@
+#add layer
+q <- ggplot(data=movies, aes(x=CriticRating, y=AudienceRating, colour=Genre, size=BudgetMillions))
+
+q + geom_point()
+# Overriding aes
+# ex1
+q + geom_point(aes(size=CriticRating))
+
+#ex2
+q + geom_point(aes(colour=BudgetMillions))
+#ex3
+q + geom_point(aes(x = BudgetMillions)) + xlab("Budet Millions $$$")
+
+#reduce line size
+
+q + geom_line(size=1) + geom_point()
