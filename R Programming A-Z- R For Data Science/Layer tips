@@ -1,0 +1,11 @@
+t <- ggplot(data=movies, aes(x=AudienceRating))
+t + geom_histogram(binwidth=10, fill = "white", colour="Blue")
+#another way:
+t <- ggplot(data=movies)
+t + geom_histogram(binwidth= 10, aes(x=BudgetMillions), fill="White", colour="Blue")
+
+#>>> 4
+
+t+geom_histogram(binwidth= 10, aes(x=CriticRating), fill="White", colour="Blue")
+
+t <- ggplot()
