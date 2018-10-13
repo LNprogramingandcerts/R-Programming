@@ -1,0 +1,10 @@
+ 
+h <- ggplot(data=movies, aes(x=BudgetMillions))
+#add colour
+h + geom_histogram(binwidth=10, aes(fill=Genre))
+#add border
+h + geom_histogram(binwidth=10, aes(fill=Genre), colour="Black")
+#>>> 3(we will improve it)
+
+h + geom_density(aes(fill=Genre))
+h + geom_density(aes(fill=Genre), position="stack")
