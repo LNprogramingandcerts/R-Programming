@@ -1,0 +1,11 @@
+Converting non-factor to factor such as year
+
+#changing from non-factor to factor:
+
+fin$ID <- factor(fin$ID)
+summary(fin)
+str(fin)
+
+fin$Inception <- factor(fin$Inception)
+summary(fin)
+str(fin)
