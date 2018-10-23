@@ -1,0 +1,18 @@
+fin$Expenses <- gsub("Dollars","",fin$Expenses)
+fin$Expenses <- gsub(",","",fin$Expenses)
+head(fin)
+str(fin)
+
+fin$Revenue <- gsub("\\$","",fin$Revenue)
+fin$Revenue <- gsub(",","",fin$Revenue)
+head(fin)
+str(fin)
+
+fin$Growth <- gsub("%","",fin$Growth)
+head(fin)
+
+fin$Expenses <- as.numeric(fin$Expenses)
+fin$Revenue <- as.numeric(fin$Revenue)
+fin$Growth <- as.numeric(fin$Growth)
+str(fin)
+summary(fin)
