@@ -1,0 +1,33 @@
+data(iris)
+??iris
+str(iris)
+summary(iris)
+summary(iris$Species)
+head(iris,10)
+df6=iris[1:6,]
+df6
+str(df6)
+
+df=iris[, c("Sepal.Length", "Sepal.Width")]
+head(df)
+
+x=iris[,c("Sepal.Length","Sepal.Width")]
+str(x)
+
+x2=iris[,'Sepal.Length',drop=FALSE]
+x2
+
+vars <- c("Sepal.Length", "Petal.Length","Species")
+nd<- iris[vars]
+head(nd)
+
+vars <- names(iris) %in% c("Species")
+nd <- iris[!vars]
+str(nd)
+head(nd)
+
+nd <- iris[c(-3,-4)]
+nd           
+df_setosa=subset(iris,iris$Species=="setosa")
+head(df_setosa)
+summary(df_setosa)
