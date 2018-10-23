@@ -1,0 +1,40 @@
+############################################Data Cleaning
+
+library(MASS)
+data()
+data(airquality)
+??airquality
+str(airquality)
+
+head(airquality)
+summary(airquality)
+
+aq=na.omit(airquality)# remove the rows NAS
+head(aq)
+head(airquality)
+
+aq2 = airquality[complete.cases(airquality), ]#keeps the non-NA
+head(aq2)
+
+aqty = airquality
+aqty[is.na(aqty)]<-0# replace NA with 0
+aqty
+head(aqty)
+
+
+meanOzone = mean(airquality$Ozone,na.rm=T)# remove NAs while computing mean of Ozone with na mean value will na
+head(meanOzone)
+
+aqty.fix=ifelse(is.na(airquality$Ozone), meanOzone, airquality$Ozone)
+summary(aqty.fix)
+summary(airquality$Ozone)
+
+install.packages(MICE)
+library(mice)
+aqty2=airquality
+md.pattern(aqty2)
+
+install.packages(VIM)
+library(VIM)
+mp <- aggr(aqty2, col=c('navyblue','yellow'), numbers=TRUE, sortVars=TRUE,labels=names(aqty2), cex.axis=.7,
+           gap=3, ylab=c("Missing data"))
