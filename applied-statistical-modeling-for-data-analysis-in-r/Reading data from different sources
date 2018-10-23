@@ -1,0 +1,22 @@
+
+setwd("C:\\Users\\Kane\\Desktop\\Programinng\\R Programing\\applied stats")
+
+redwine <- read.csv("winequality-red.csv",header=T, sep=";")
+whitewine <- read.csv("winequality-white.csv",header=T,sep=";")
+rm(white)
+rm(wine)
+head(redwine)
+summary(redwine)
+str(redwine)
+#Data cleaning with changing "," to ";"
+####################################################################data import from URL
+
+library(RCurl)
+data1 = read.csv(text=getURL("https://raw.githubusercontent.com/sciruela/Happiness-Salaries/master/data.csv"))
+head(data1)
+summary(data1)
+
+data2=read.csv(text=getURL("https://raw.githubusercontent.com/opetchey/RREEBES/master/Beninca_etal_2008_Nature/data/nutrients_original.csv"), skip=7, header=T)
+head(data2)
+summary(data2)
+?getURL
