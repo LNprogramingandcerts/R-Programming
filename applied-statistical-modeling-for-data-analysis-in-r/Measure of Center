@@ -1,0 +1,46 @@
+############################ Measur of centre for quantitative / numerical data
+# what is the typical value?
+
+x <- rnorm(1000, 3, .25)
+x
+ hist(x)
+ 
+ mean(x)
+
+ x= c(2,3,4,5,2,6,8,800,9,10,6,8)
+ 
+ median(x)
+
+ #compare the measn and median
+ #histograms: distrubtion of values of continous variables
+ #Frequency of values represented using bars
+ 
+ time <- c(19.09, 19.55, 17.89, 17.73, 25.15, 27.27, 25,24, 21.05, 21.65)
+ hist(time)
+ #Left skew: Mean <median
+ # few smaller values reduce teh mean
+ 
+ install.packages("moments")
+ library(moments)
+ 
+ skewness(time)# skewness is a measure of the asymmetry o
+ 
+ N <- 10000
+x <- rnbinom(N, 10, .5) 
+hist(x)
+#right skew: mean>median
+#few larger values increase the mean
+skewness(x) #positive skew
+
+head(iris)
+hist(iris$Petal.Length)
+skewness(x) #positive skew
+
+head(iris)
+hist(iris$Petal.Length)
+skewness(iris$Petal.Length)
+
+mean(iris$Petal.Length)
+median(iris$Petal.Length)
+
+range(iris$Petal.Length)# minimum to maximum
