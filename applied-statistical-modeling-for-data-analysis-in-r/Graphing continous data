@@ -1,0 +1,30 @@
+
+data("ToothGrowth")
+head(ToothGrowth)
+
+boxplot(len~supp, data = ToothGrowth)
+
+library(ggplot2)
+qplot(ToothGrowth$supp, ToothGrowth$len, geom="boxplot")
+
+ggplot(ToothGrowth, aes(x=supp, y= len)) + geom_boxplot()
+
+library(MASS)
+head(birthwt)
+
+ggplot(birthwt, aes(x=factor(race), y=bwt)) +geom_boxplot()
+#compare numerical variables across categories
+
+ggplot(birthwt, aes(x=factor(race), y=bwt)) +geom_boxplot() + ggtitle("Birth Wt")
+
+ggplot(birthwt, aes(x=factor(race), y=bwt)) +geom_boxplot()+coord_flip()
+summary(birthwt)
+str(birthwt)
+
+#horizont boxplots
+head(ChickWeight)
+summary(ChickWeight)
+ggplot(ChickWeight, aes(x=Time, y=weight))+ geom_boxplot(aes(group=Time))
+#group the respnse and weight according to time
+
+ggplot(ChickWeight, aes(x=Time, y=weight)) + geom_boxplot(aes(group=Time)) +facet_grid(.~Diet)
