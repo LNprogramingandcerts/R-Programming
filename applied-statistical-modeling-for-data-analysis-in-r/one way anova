@@ -1,0 +1,23 @@
+data("PlantGrowth")
+summary(PlantGrowth)
+
+install.package("ggpubr")
+library(ggpubr)
+
+ggboxplot(PlantGrowth, x = "group", y = "weight", color = "group", palette = c("blue", "red", "green"),
+          order = c("ctrl", "trl", "trl2"), ylab = "weight", xlab = "Treatment")
+
+md = aov(weight ~ group, data = PlantGrowth) summary(md)
+
+t = TurkeyHSD(md)
+t
+plot(t)
+
+pairwise.t.test(PlantGrowth$weightm PlantGrowth$group, p.adjust.methdo = "BH")
+
+plot(md, 1)
+
+plot(md,2)
+
+aov_residuals <- residuals(object = md)
+shapiro.test(x = aov_residuals)
