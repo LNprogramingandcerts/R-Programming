@@ -1,0 +1,17 @@
+
+normdis<-rnorm(n=1000, m=30, sd=3)
+hist(normdis)
+
+data("ToothGrowth")
+head(ToothGrowth)
+str(ToothGrowth)
+
+hist(ToothGrowth$len)
+
+qqnorm(ToothGrowth$len)
+qqline(ToothGrowth$len)
+
+shapiro.test(ToothGrowth$len)
+
+#SHapiro-Wilk normality test
+#H0: data are normally distributed
