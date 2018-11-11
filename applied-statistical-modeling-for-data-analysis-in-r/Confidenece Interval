@@ -1,0 +1,22 @@
+n = length(ToothGrowth$len)
+s = sd(ToothGrowth$len)
+SE = s/sqrt(n)
+
+zval = qnorm(0.975)
+zval
+
+moe = zval*SE
+
+xbar = mean(ToothGrowth$len)
+xbar + c(-moe, moe)
+
+tval = qt(.975, df = n-1)
+tval 
+
+moe = tval *SE
+
+xbar = mean(ToothGrowth$len)
+xbar + c(-moe, moe)
+
+t.test(ToothGrowth$len)
+t.test(ToothGrowth$len, conf.level = 0.9)
