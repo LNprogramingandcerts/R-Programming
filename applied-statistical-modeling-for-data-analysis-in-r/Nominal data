@@ -1,0 +1,40 @@
+Using the chi-square test
+
+men = c(150,120,45)
+women = c(320, 270, 100)
+
+food.survey = as.data.frame(rbind(men, women))
+
+names(food.survey) = c('Chicken', 'Salad', 'Cake')
+
+food.survey
+chisq.test(food.survey)
+
+#frequencies
+library(MASS)
+
+levels(survey$Smoke)
+sfreq = table(survey$Smoke)
+sfreq
+
+install.packages("gmodels")
+library(gmodels)
+
+#2 way cross - tabulation- mulitvariate frequency table
+#
+#frequeniceis and relative frequenices
+
+head(mtcars)
+table(mtcars$carb, mtcars$cyl)
+CrossTable(mtcars$carb, mtcars$cyl, prop.t=TRUE, prop.r=TRUE, prop.c=TRUE)
+
+
+install.packages("FIFER")
+library(fifer)
+
+M <- as.table(rbind(c(76,32,46), c(48,23,47), c(45,34,78)))
+dimnames(M) <- list(sex=c("Male", "Female", "Juv"), loc=c("Lower", "Middle", "High"))
+M
+chisq.test(M)
+
+chisq.post.hoc(M)
