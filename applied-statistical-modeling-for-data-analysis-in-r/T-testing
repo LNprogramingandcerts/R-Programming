@@ -1,0 +1,18 @@
+
+library(ggplot2)
+
+qplot(supp,len,data=ToothGrowth, main="Tooth growth of guinea pigs", xlab= "Supplement typle", ylab="Tooth Length")
+
+mean(ToothGrowth$len)
+
+t.test(ToothGrowth$len, mu =18)
+
+t.test(ToothGrowth$len, alternative = "greater", mu = 3)
+
+OJ = ToothGrowth$len[ToothGrowth$supp == 'OJ']
+VC = ToothGrowth$len[ToothGrowth$supp == 'VC']
+
+t.test(OJ, VC,
+       paired = FALSE, var.equal = FALSE, conf.leve = .95)
+
+t.test(OJ, VC, altermative = "greater", paired = FALSE)
