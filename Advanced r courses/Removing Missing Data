@@ -1,0 +1,4 @@
+rc <- adrc
+adrc[!complete.cases(adrc),]
+adrc[is.na(adrc$Industry),]
+adrc[!is.na(adrc$Industry),]#oppisite
