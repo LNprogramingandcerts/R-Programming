@@ -1,0 +1,4 @@
+adrc[adrc$Revenue == 9746272,]
+#which will look thru the vecotor and only pick out the true values
+adrc[which(adrc$Revenue == 9746272),]
+head(adrc)
