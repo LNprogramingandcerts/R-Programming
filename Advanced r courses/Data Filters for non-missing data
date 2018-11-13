@@ -2,3 +2,10 @@ adrc[adrc$Revenue == 9746272,]
 #which will look thru the vecotor and only pick out the true values
 adrc[which(adrc$Revenue == 9746272),]
 head(adrc)
+
+is.na()##
+#checks if a fuction is na
+is.na(adrc)
+
+is.na(adrc$Expense)
+adrc[is.na(adrc$Expense),]
