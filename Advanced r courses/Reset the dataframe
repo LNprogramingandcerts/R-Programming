@@ -1,0 +1,6 @@
+#Resettting the dataframe index
+rownames(adrc) <- 1:nrow(adrc)
+rownames(adrc)
+adrc
+rownames(adrc) <- NULL
+adrc
