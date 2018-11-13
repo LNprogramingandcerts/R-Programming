@@ -1,0 +1,4 @@
+#updated the adrc with adrc<-read.csv(file.choose(), na.strings=c(""))
+#Checking if NA is in one of the columns
+!complete.cases(adrc)
+adrc[!complete.cases(adrc),]
