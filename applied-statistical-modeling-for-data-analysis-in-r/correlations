@@ -1,0 +1,24 @@
+data(mtcars)
+str(mtcars)
+head(mtcars)
+install.packages("ggplot2")
+library(ggplot2)
+p1 = qplot(mpg, wt, data =mtcars, xlab = "Miles/gallon", ylab = "weight", main = "Miles per gallon vs. weight")
+p1
+
+p2 = qplot(Petal.Length, Petal.Width, data = iris, xlab = "Petal Length", ylab = "Petal Width")
+p2
+
+hist(mtcars$mpg)
+cor(mtcars$mpg,mtcars$wt)
+cor(mtcars$mpg,mtcars$wt, method = "pearson")
+cor(mtcars$mpg,mtcars$wt, method = "pearson", use = "complete.obs")
+
+install.packages("corrplot")
+library(corrplot)
+
+corr1<-cor(mtcars)
+corrplot(corr1, method = "color")
+
+r= cor.test(mtcars$mpg, mtcars$wt)
+r
