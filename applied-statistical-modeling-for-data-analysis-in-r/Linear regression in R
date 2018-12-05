@@ -1,0 +1,11 @@
+names(iris)
+fit1= lm(Petal.Length~Sepal.Length, data=iris)
+fit1
+
+summary(fit1)
+
+fit2= lm(Petal.Length~., data=iris)
+fit2
+fit2 = lm(Petal.Length~.-Species, data=iris)
+fit2
+summary(fit2)
