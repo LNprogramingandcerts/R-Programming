@@ -1,0 +1,14 @@
+Weather$Chicago[1,1]
+
+lapply(Weather,"[", 1, 1)
+lapply(Weather, "[",1, )
+
+lapply(Weather, function(x) x[,12])
+lapply(Weather, function(z) z[1,] -z[2,])
+
+sapply(Weather, "[", 1, 7)
+lapply(Weather, "[", 1, 10:12)
+
+lapply(Weather, rowMeans)
+round(sapply(Weather, rowMeans), 2)
+lapply(Weather, function(z), round((z[1,]-z[2,])/z[2,],2))
