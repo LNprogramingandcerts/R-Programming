@@ -1,0 +1,25 @@
+?apply
+apply(Chicago, 1, mean)
+mean(Chicago["DaysWithPrecip",])
+apply(Chicago, 1, max)
+apply(Chicago, 1, min)
+apply(Chicago, 2, min)
+#Compare:
+apply(NewYork, 1, mean)
+apply(Chicago, 1, mean)
+apply(Houston, 1, mean)
+apply(SanFra, 1, mean)
+
+############################################################
+
+output <- NULL
+for(i in 1:5){
+  output[i] <- mean(Chicago[i,])
+  
+}
+output
+
+names(output) <- rownames(Chicago)
+output
+
+apply(Chicago, 1, mean)
