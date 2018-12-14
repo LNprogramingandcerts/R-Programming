@@ -1,0 +1,6 @@
+Weather
+lapply(Weather, rowMeans)
+Chicago
+apply(Chicago, 1, max)
+lapply(Weather, apply, 1, max)
+lapply(Weather, fuction(x) appl
