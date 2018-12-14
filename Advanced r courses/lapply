@@ -1,0 +1,27 @@
+?lapply
+Chicago
+t(Chicago)
+Weather
+Weather
+lapply(Weather, t)
+mynewlist <- lapply(Weather, t)
+mynewlist
+
+Chicago
+lapply(Weather, rbind, NewRow=1:12)
+
+?rowMeans
+lapply(Weather, rowMeans)
+
+Weather$Chicago[1,1]
+
+lapply(Weather,"[", 1, 1)
+lapply(Weather, "[",1, )
+
+Weather$Chicago[1,1]
+
+lapply(Weather,"[", 1, 1)
+lapply(Weather, "[",1, )
+
+lapply(Weather, function(x) x[,12])
+lapply(Weather, function(z) z[1,] -z[2,])
